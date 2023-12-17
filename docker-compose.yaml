@@ -1,0 +1,23 @@
+version: "3.8"
+
+services:
+  pg:
+    image: postgres:latest
+#    build: ...
+    environment:
+      POSTGRES_DB: ${POSTGRES_DB}
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+      PGDATA: ${PGDATA}
+    ports:
+      - "5432:5432"
+    volumes:
+      - db-data:${PGDATA}
+#    healthcheck:
+#      test: /healthcheck
+
+#  back:
+#    ...
+
+volumes:
+  db-data:
