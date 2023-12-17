@@ -18,11 +18,13 @@ services:
     container_name: pgadmin4_container
     image: dpage/pgadmin4
     restart: always
-    ports:
-      - "5050:80"
     environment:
-      PGADMIN_DEFAULT_EMAIL: admin@admin.com
-      PGADMIN_DEFAULT_PASSWORD: root
+      PGADMIN_DEFAULT_EMAIL: ${POSTGRES_USER}@localhost
+      PGADMIN_DEFAULT_PASSWORD: ${POSTGRES_PASSWORD}
+    ports:
+      - "8080:80"
+#    volumes:
+#      - pgadmin-data:/home
 
 #  adminer:
 #    image: adminer
@@ -35,4 +37,5 @@ services:
 
 volumes:
   db-data:
+#  pgadmin-data:
 #  adminer-data:

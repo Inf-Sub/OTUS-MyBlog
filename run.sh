@@ -1,3 +1,4 @@
 #!/bin/sh
 
-docker compose up --detach --remove-orphans
+docker compose build
+docker compose up --remove-orphans --detach
