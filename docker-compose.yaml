@@ -24,14 +24,6 @@ services:
       PGADMIN_DEFAULT_EMAIL: admin@admin.com
       PGADMIN_DEFAULT_PASSWORD: root
 
-#  phpmyadmin:
-#    image: phpmyadmin
-#    restart: always
-#    ports:
-#      - "8080:80"
-#    environment:
-#      - PMA_ARBITRARY=1
-
 #  adminer:
 #    image: adminer
 #    restart: always
