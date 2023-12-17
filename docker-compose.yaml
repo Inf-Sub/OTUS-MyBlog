@@ -1,9 +1,9 @@
-version: "3.8"
+version: '3.1'
 
 services:
-  pg:
-    image: postgres:latest
-#    build: ...
+  db:
+    image: postgres
+    restart: always
     environment:
       POSTGRES_DB: ${POSTGRES_DB}
       POSTGRES_USER: ${POSTGRES_USER}
@@ -13,11 +13,16 @@ services:
       - "5432:5432"
     volumes:
       - db-data:${PGDATA}
-#    healthcheck:
-#      test: /healthcheck
 
-#  back:
-#    ...
+  adminer:
+    image: adminer
+    restart: always
+    ports:
+      - 8080:8080
+    volumes:
+      - adminer-data:/home
+
 
 volumes:
   db-data:
+  adminer-data:
