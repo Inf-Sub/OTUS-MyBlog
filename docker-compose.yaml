@@ -1,17 +1,29 @@
 version: '3.8'
 
 services:
-  pgadmin:
-    container_name: pgadmin4_container
-    image: dpage/pgadmin4
+#  pgadmin:
+#    container_name: pgadmin4_container
+#    image: dpage/pgadmin4
+#    restart: always
+#    environment:
+#      PGADMIN_DEFAULT_EMAIL: ${POSTGRES_USER}@localhost.local
+#      PGADMIN_DEFAULT_PASSWORD: ${POSTGRES_PASSWORD}
+#    ports:
+#      - "8080:80"
+##    volumes:
+##      - pgadmin-data:/home
+##   Сервис будет запущен, только после старта db
+#    depends_on:
+#      - db
+
+  adminer:
+    container_name: adminer_container
+    image: adminer
     restart: always
-    environment:
-      PGADMIN_DEFAULT_EMAIL: ${POSTGRES_USER}@localhost.local
-      PGADMIN_DEFAULT_PASSWORD: ${POSTGRES_PASSWORD}
     ports:
-      - "8080:80"
+      - "8080:8080"
 #    volumes:
-#      - pgadmin-data:/home
+#      - adminer-data:/home
 #   Сервис будет запущен, только после старта db
     depends_on:
       - db
@@ -29,15 +41,6 @@ services:
       - "5432:5432"
     volumes:
       - db-data:${PGDATA}
-
-#  adminer:
-#    container_name: adminer_container
-#    image: adminer
-#    restart: always
-#    ports:
-#      - "8080:8080"
-#    volumes:
-#      - adminer-data:/home
 
 
 volumes:
