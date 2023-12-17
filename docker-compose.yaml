@@ -6,8 +6,9 @@ services:
     image: dpage/pgadmin4
     restart: always
     environment:
-      PGADMIN_DEFAULT_EMAIL: ${POSTGRES_USER}
+#      PGADMIN_DEFAULT_EMAIL: ${POSTGRES_USER}
 #      PGADMIN_DEFAULT_EMAIL: ${POSTGRES_USER}@localhost.local
+      PGADMIN_DEFAULT_EMAIL: ${POSTGRES_USER}@localhost
       PGADMIN_DEFAULT_PASSWORD: ${POSTGRES_PASSWORD}
     ports:
       - "8080:80"
